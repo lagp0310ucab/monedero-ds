@@ -1,0 +1,7 @@
+{
+  "name": "monedero-ds-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
