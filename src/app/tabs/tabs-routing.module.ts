@@ -20,8 +20,8 @@ const routes: Routes = [
         loadChildren: () => import('../pagos/pagos.module').then(m => m.PagosPageModule)
       },
       {
-        path: 'ayuda',
-        loadChildren: () => import('../ayuda/ayuda.module').then(m => m.AyudaPageModule)
+        path: 'ajustes',
+        loadChildren: () => import('../ajustes/ajustes.module').then(m => m.AjustesPageModule)
       },
       {
         path: '',
