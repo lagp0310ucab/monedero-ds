@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../ajustes/ajustes.module').then(m => m.AjustesPageModule)
       },
       {
+        path: 'operaciones',
+        loadChildren: () => import('../operaciones/operaciones.module').then(m => m.OperacionesPageModule)
+      },
+      {
         path: '',
         redirectTo: 'tabs/inicio',
         pathMatch: 'full'
