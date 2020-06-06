@@ -25,7 +25,11 @@ const routes: Routes = [
   {
     path: 'ajustes',
     loadChildren: () => import('./ajustes/ajustes.module').then( m => m.AjustesPageModule)
+  },  {
+    path: 'operaciones',
+    loadChildren: () => import('./operaciones/operaciones.module').then( m => m.OperacionesPageModule)
   }
+
 ];
 @NgModule({
   imports: [
