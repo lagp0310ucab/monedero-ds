@@ -46,7 +46,7 @@
           <br />
           <br />
 
-          <ion-button color="primary" expand="block" (click)="loginService.validarCampos(this.email, this.password)">Iniciar Sesión</ion-button>
+          <ion-button color="primary"  [routerLink]="['/home']" expand="block" (click)="loginService.validarCampos(this.email, this.password)">Iniciar Sesión</ion-button>
         </div>
       </ion-col>
     </ion-row>
