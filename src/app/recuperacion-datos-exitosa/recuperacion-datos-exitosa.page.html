@@ -1,0 +1,25 @@
+<ion-content>
+	<ion-grid>
+    <br />
+    <br />
+    <ion-row class="ion-justify-content-center">
+      <!-- Logo. -->
+      <ion-img src="../../assets/icon/favicon.png" alt="Logo MoneyUCAB"></ion-img>
+    </ion-row>
+    <br />
+    <br />
+		<br />
+    <ion-row class="ion-justify-content-center">
+			<p class="ion-text-center">
+				Se envió un correo de recuperación <span *ngIf="email">a: <strong>{{ email }}</strong></span> 
+				con las instrucciones para recuperar sus datos.
+			</p>
+    </ion-row>
+		<br />
+		<br />
+		<br />
+		<ion-row class="ion-justify-content-center">
+			<ion-button color="primary" [routerLink]="['/login']" expand="block">Volver a Inicio</ion-button>
+		</ion-row>
+	</ion-grid>
+</ion-content>

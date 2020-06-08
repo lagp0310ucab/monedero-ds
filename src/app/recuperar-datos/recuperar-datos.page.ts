@@ -3,12 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-recuperar-datos',
+  templateUrl: './recuperar-datos.page.html',
+  styleUrls: ['./recuperar-datos.page.scss'],
 })
-export class LoginPage implements OnInit {
-
+export class RecuperarDatosPage implements OnInit {
+	
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {

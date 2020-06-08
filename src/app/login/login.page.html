@@ -2,53 +2,53 @@
   <ion-grid>
     <br />
     <br />
-    <ion-row>
-      <ion-col></ion-col>
-      <ion-col>
-          <!-- Logo. -->
-          <ion-img src="../../assets/icon/favicon.png" alt="Logo MoneyUCAB"></ion-img>
-      </ion-col>
-      <ion-col></ion-col>
+    <ion-row class="ion-justify-content-center">
+      <!-- Logo. -->
+      <ion-img src="../../assets/icon/favicon.png" alt="Logo MoneyUCAB"></ion-img>
     </ion-row>
     <br />
     <br />
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-item>
-            <ion-label position="floating">Correo Electrónico</ion-label>
-            <ion-input 
-              [(ngModel)]="email"
-              type="email" 
-              autofocus="true" 
-              enterkeyhint="next" 
-              inputmode="email" 
-              name="email" 
-              placeholder="email@example.com" 
-              required="true">
-            </ion-input>
-          </ion-item>
+		<br />
+    <ion-row class="ion-justify-content-center">
+			<div>
+				<ion-item>
+					<ion-label position="floating">Correo Electrónico</ion-label>
+					<ion-input 
+						[(ngModel)]="email"
+						type="email" 
+						autofocus="true" 
+						enterkeyhint="next" 
+						inputmode="email" 
+						name="email" 
+						placeholder="email@example.com" 
+						required="true">
+					</ion-input>
+				</ion-item>
 
-          <ion-item>
-            <ion-label position="floating">Contraseña</ion-label>
-            <ion-input 
-              [(ngModel)]="password"
-              clearInput 
-              type="password" 
-              enterkeyhint="send" 
-              inputmode="password" 
-              name="password" 
-              required="true">
-            </ion-input>
-          </ion-item>
-
-          <br />
-          <br />
-          <br />
-
-          <ion-button color="primary"  [routerLink]="['/home']" expand="block" (click)="loginService.validarCampos(this.email, this.password)">Iniciar Sesión</ion-button>
-        </div>
-      </ion-col>
+				<ion-item>
+					<ion-label position="floating">Contraseña</ion-label>
+					<ion-input 
+						[(ngModel)]="password"
+						clearInput 
+						type="password" 
+						enterkeyhint="send" 
+						inputmode="password" 
+						name="password" 
+						required="true">
+					</ion-input>
+				</ion-item>
+				<br />
+				<br />
+				<br />
+				<!-- TODO: Eliminar el routerlink de aquí. Para pruebas está bien, pero lo que se debe hacer es validar el login mediante el evento de loginService cuando 
+				se haga click en el botón. -->
+				<ion-button color="primary" [routerLink]="['/home']" expand="block" (click)="loginService.validarCampos(this.email, this.password)">Iniciar Sesión</ion-button>
+			</div>
     </ion-row>
+    <br />
+    <br />
+		<ion-row class="ion-justify-content-center">
+			<ion-button color="light" [routerLink]="['/recuperar-datos']">Olvidé Mis Datos</ion-button>
+		</ion-row>
   </ion-grid>
 </ion-content>

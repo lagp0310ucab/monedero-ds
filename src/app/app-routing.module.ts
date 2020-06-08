@@ -32,6 +32,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'recuperar-datos',
+    loadChildren: () => import('./recuperar-datos/recuperar-datos.module').then( m => m.RecuperarDatosPageModule)
+  },
+  {
+    path: 'recuperacion-datos-exitosa',
+    loadChildren: () => import('./recuperacion-datos-exitosa/recuperacion-datos-exitosa.module').then( m => m.RecuperacionDatosExitosaPageModule)
   }
 
 ];

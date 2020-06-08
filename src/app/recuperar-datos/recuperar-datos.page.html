@@ -1,0 +1,43 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/login"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Recuperar Datos</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<ion-grid>
+    <br />
+    <br />
+    <ion-row class="ion-justify-content-center">
+      <!-- Logo. -->
+      <ion-img src="../../assets/icon/favicon.png" alt="Logo MoneyUCAB"></ion-img>
+    </ion-row>
+    <br />
+    <br />
+		<br />
+    <ion-row class="ion-justify-content-center">
+			<ion-item>
+				<ion-label position="floating">Correo Electrónico</ion-label>
+				<ion-input 
+					[(ngModel)]="email"
+					type="email" 
+					autofocus="true" 
+					enterkeyhint="next" 
+					inputmode="email" 
+					name="email" 
+					placeholder="email@example.com" 
+					required="true">
+				</ion-input>
+			</ion-item>
+    </ion-row>
+		<br />
+		<br />
+		<br />
+		<ion-row class="ion-justify-content-center">
+			<ion-button color="primary" [routerLink]="['/recuperacion-datos-exitosa']" expand="block" (click)="loginService.recuperarDatos(this.email)">Enviar E-mail de Recuperación</ion-button>
+		</ion-row>
+	</ion-grid>
+</ion-content>
