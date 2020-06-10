@@ -40,6 +40,14 @@ const routes: Routes = [
   {
     path: 'recuperacion-datos-exitosa',
     loadChildren: () => import('./recuperacion-datos-exitosa/recuperacion-datos-exitosa.module').then( m => m.RecuperacionDatosExitosaPageModule)
+  },
+  {
+    path: 'pago-exitoso',
+    loadChildren: () => import('./pago-exitoso/pago-exitoso.module').then( m => m.PagoExitosoPageModule)
+  },
+  {
+    path: 'pago-fallido',
+    loadChildren: () => import('./pago-fallido/pago-fallido.module').then( m => m.PagoFallidoPageModule)
   }
 
 ];

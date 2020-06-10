@@ -27,7 +27,7 @@ export class LoginService {
   /**
    * Se encarga de llamar al backend para hacer el login.
    */
-  public login(email, password) {
+  public login(email: string, password: string) {
     // TODO: Consumir la API para hacer el login.
     console.log('login');
   }
