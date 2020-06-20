@@ -48,6 +48,22 @@ const routes: Routes = [
   {
     path: 'pago-fallido',
     loadChildren: () => import('./pago-fallido/pago-fallido.module').then( m => m.PagoFallidoPageModule)
+  },
+  {
+    path: 'cambiar-nombre-usuario',
+    loadChildren: () => import('./cambiar-nombre-usuario/cambiar-nombre-usuario.module').then( m => m.CambiarNombreUsuarioPageModule)
+  },
+  {
+    path: 'cambiar-password',
+    loadChildren: () => import('./cambiar-password/cambiar-password.module').then( m => m.CambiarPasswordPageModule)
+  },
+  {
+    path: 'cambiar-correo-electronico',
+    loadChildren: () => import('./cambiar-correo-electronico/cambiar-correo-electronico.module').then( m => m.CambiarCorreoElectronicoPageModule)
+  },
+  {
+    path: 'preguntas-frecuentes',
+    loadChildren: () => import('./preguntas-frecuentes/preguntas-frecuentes.module').then( m => m.PreguntasFrecuentesPageModule)
   }
 
 ];

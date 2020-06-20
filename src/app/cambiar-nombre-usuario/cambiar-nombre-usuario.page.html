@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/tabs/ajustes" text="Atrás"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Nombre de Usuario</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+		<br />
+    <ion-row class="ion-justify-content-center">
+			<ion-col>
+				<ion-item>
+					<ion-label position="floating">Nuevo Nombre de Usuario</ion-label>
+					<ion-input 
+						[(ngModel)]="nuevoUsuario"
+						type="text" 
+						autofocus="true" 
+						enterkeyhint="next" 
+						inputmode="text" 
+						name="nuevoUsuario" 
+						placeholder="p.ej. user12927" 
+						required="true">
+					</ion-input>
+				</ion-item>
+				<br />
+				<br />
+			</ion-col>
+    </ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-button 
+					color="primary" 
+					[routerLink]="['/tabs/ajustes']" 
+					expand="block" 
+					(click)="datosService.validarCampos(this.nuevoUsuario, '', 'USUARIO')"
+				>
+					Cambiar Nombre de Usuario
+				</ion-button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-button color="light" [routerLink]="['/tabs/ajustes']" expand="block">Cancelar</ion-button>
+			</ion-col>
+		</ion-row>
+  </ion-grid>
+</ion-content>
+
