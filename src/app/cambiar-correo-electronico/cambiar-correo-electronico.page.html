@@ -1,0 +1,52 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button defaultHref="/tabs/ajustes" text="Atrás"></ion-back-button>
+		</ion-buttons>
+		<ion-title>Correo Electrónico</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+		<br />
+    <ion-row class="ion-justify-content-center">
+			<ion-col>
+				<ion-item>
+					<ion-label position="floating">Nuevo Correo Electrónico</ion-label>
+					<ion-input 
+						[(ngModel)]="nuevoEmail"
+						type="email" 
+						autofocus="true" 
+						enterkeyhint="next" 
+						inputmode="email" 
+						name="nuevoEmail" 
+						placeholder="p.ej. user@example.com" 
+						required="true">
+					</ion-input>
+				</ion-item>
+				<br />
+				<br />
+			</ion-col>
+    </ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-button 
+					color="primary" 
+					[routerLink]="['/tabs/ajustes']" 
+					expand="block" 
+					(click)="datosService.validarCampos(this.nuevoEmail, '', 'EMAIL')"
+				>
+					Cambiar Correo Electrónico
+				</ion-button>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<ion-button color="light" [routerLink]="['/tabs/ajustes']" expand="block">Cancelar</ion-button>
+			</ion-col>
+		</ion-row>
+  </ion-grid>
+</ion-content>
+
+
