@@ -11,19 +11,26 @@ export class FormularioRecargarTarjetaSaldoPage implements OnInit {
   monto:number;
   confirmeMonto:number;
   constructor(public alertController: AlertController) { }
-
-  verificar()
-  {
-      if (this.monto==null || this.confirmeMonto==null )  
-          this.presentAlertNull();
-       else
-         if (this.monto!=this.confirmeMonto)  
-            this.presentAlertComparar();
   
-   
+  ngOnInit() {
+  }
+	
+	/**
+	 * Verificar los datos que proporcionó el usuario.
+	 */
+  public verificar()
+  {
+		if (this.monto == null || this.confirmeMonto == null)  
+			this.presentAlertNull();
+		else
+			if (this.monto != this.confirmeMonto)  
+				this.presentAlertComparar();
   }
 
-  async presentAlertComparar() {
+	/**
+	 * Verificar que los montos coincidan.
+	 */
+  public async presentAlertComparar() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Error',  
@@ -33,7 +40,11 @@ export class FormularioRecargarTarjetaSaldoPage implements OnInit {
 
     await alert.present();
   }
-  async presentAlertNull() {
+	
+	/**
+	 * Verificar que los campos no sean nulos.
+	 */
+  public async presentAlertNull() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Error',  
@@ -42,10 +53,6 @@ export class FormularioRecargarTarjetaSaldoPage implements OnInit {
     });
 
     await alert.present();
-  }
-
-  
-  ngOnInit() {
   }
 
 }

@@ -1,35 +1,37 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-			<ion-back-button defaultHref="/recargar-cuenta-bancaria"></ion-back-button>
+			<ion-back-button defaultHref="/tabs/saldo"></ion-back-button>
 		</ion-buttons>
-
-        <ion-title>Ingresar monto para recargar</ion-title>
-
+    <ion-title>Recargar Saldo</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
   <ion-grid>
     <br />
     <br />
-    <ion-list>
-      <ion-item>
-          <ion-label position="stacked">Banco:</ion-label>
-          <ion-label>Banesco</ion-label>
-          <ion-label position="stacked">No de Cuenta:</ion-label>
-          <ion-label>1234567891</ion-label>
-          <ion-label position="stacked">Monto:</ion-label>
-          <ion-input placeholder="Monto" type="number"  [(ngModel)]="monto"></ion-input>
-          <ion-label position="stacked">Confirme Monto:</ion-label>
-          <ion-input placeholder="Confirme Monto" type="number" [(ngModel)]="confirmeMonto" ></ion-input>    
-       </ion-item>
-      </ion-list>
-      <div class="ion-text-center">
-        <ion-button color="primary" (click)=" verificar()" >Recargar</ion-button>
-    </div>
-
+		<ion-row class="ion-justify-content-center">
+			<ion-col class="ion-justify-content-center">
+				<ion-list>
+					<ion-item>
+						<ion-label position="stacked">Banco:</ion-label>
+						<ion-label>Banesco</ion-label>
+						<ion-label position="stacked">No de Cuenta:</ion-label>
+						<ion-label>1234567891</ion-label>
+						<ion-label position="stacked">Monto:</ion-label>
+						<ion-input placeholder="Monto" type="number"  [(ngModel)]="monto"></ion-input>
+						<ion-label position="stacked">Confirme Monto:</ion-label>
+						<ion-input placeholder="Confirme Monto" type="number" [(ngModel)]="confirmeMonto" ></ion-input>    
+					</ion-item>
+				</ion-list>
+			</ion-col>
+		</ion-row>
+		<ion-row class="ion-justify-content-center">
+			<ion-col class="ion-justify-content-center">
+				<div class="ion-text-center">
+					<ion-button color="primary" (click)="verificar()" >Recargar</ion-button>
+				</div>
+			</ion-col>
+		</ion-row>
   </ion-grid>
-
 </ion-content>

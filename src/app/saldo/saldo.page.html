@@ -1,11 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <!--<ion-buttons slot="start">
+			<ion-back-button defaultHref="/home"></ion-back-button>
+		</ion-buttons>-->
+    <ion-title>Saldo</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div>
-          Saldo
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <br />
+    <br />
+		<ion-row class="ion-justify-content-center">
+			<ion-col class="ion-align-self-center">
+				<p class="ion-text-center">Saldo Actual:<br /> <b>99.999,99 BsS</b>.</p>
+			</ion-col>
+		</ion-row>
+		<br />
+		<ion-row class="ion-justify-content-center">
+			<ion-col class="ion-align-self-center">
+				<ion-button expand="block" [routerLink]="['/recargartarjeta']">Recargar Utilizando una Tarjeta</ion-button>
+			</ion-col>
+			<ion-col class="ion-align-self-center">
+				<ion-button expand="block" [routerLink]="['/recargar-cuenta-bancaria']">Recargar Mediante Cuenta Bancaria</ion-button>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>

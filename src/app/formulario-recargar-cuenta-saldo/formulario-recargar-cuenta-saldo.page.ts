@@ -15,19 +15,22 @@ export class FormularioRecargarCuentaSaldoPage implements OnInit {
   ngOnInit() {
   }
 
-
-  verificar()
+	/**
+	 * Verificar los datos que proporcionó el usuario.
+	 */
+  public verificar()
   {
-      if (this.monto==null || this.confirmeMonto==null )  
-          this.presentAlertNull();
-       else
-         if (this.monto!=this.confirmeMonto)  
-            this.presentAlertComparar();
-  
-   
+		if (this.monto == null || this.confirmeMonto == null)  
+			this.presentAlertNull();
+		else
+			if (this.monto != this.confirmeMonto)  
+				this.presentAlertComparar();
   }
 
-  async presentAlertComparar() {
+	/**
+	 * Verificar que los montos coincidan.
+	 */
+  public async presentAlertComparar() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Error',  
@@ -37,7 +40,11 @@ export class FormularioRecargarCuentaSaldoPage implements OnInit {
 
     await alert.present();
   }
-  async presentAlertNull() {
+	
+	/**
+	 * Verificar que los campos no sean nulos.
+	 */
+  public async presentAlertNull() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Error',  
