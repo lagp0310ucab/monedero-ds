@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 const routes: Routes = [
   {
@@ -25,7 +26,8 @@ const routes: Routes = [
   {
     path: 'ajustes',
     loadChildren: () => import('./ajustes/ajustes.module').then( m => m.AjustesPageModule)
-  },  {
+  },
+  {
     path: 'operaciones',
     loadChildren: () => import('./operaciones/operaciones.module').then( m => m.OperacionesPageModule)
   },
@@ -50,6 +52,46 @@ const routes: Routes = [
     loadChildren: () => import('./pago-fallido/pago-fallido.module').then( m => m.PagoFallidoPageModule)
   },
   {
+    path: 'recargarsaldo',
+    loadChildren: () => import('./recargarsaldo/recargarsaldo.module').then( m => m.RecargarsaldoPageModule)
+  },
+  {
+    path: 'recargarsaldo',
+    loadChildren: () => import('./recargarsaldo/recargarsaldo.module').then( m => m.RecargarsaldoPageModule)
+  },
+  {
+    path: 'recargartarjeta',
+    loadChildren: () => import('./recargartarjeta/recargartarjeta.module').then( m => m.RecargartarjetaPageModule)
+  },
+  {
+    path: 'formulario-recargar-tarjeta-saldo',
+    loadChildren: () => import('./formulario-recargar-tarjeta-saldo/formulario-recargar-tarjeta-saldo.module').then( m => m.FormularioRecargarTarjetaSaldoPageModule)
+  },
+  {
+    path: 'recarga-tarjeta-saldo-exitosa',
+    loadChildren: () => import('./recarga-tarjeta-saldo-exitosa/recarga-tarjeta-saldo-exitosa.module').then( m => m.RecargaTarjetaSaldoExitosaPageModule)
+  },
+  {
+    path: 'recargar-cuenta-bancaria',
+    loadChildren: () => import('./recargar-cuenta-bancaria/recargar-cuenta-bancaria.module').then( m => m.RecargarCuentaBancariaPageModule)
+  },
+  {
+    path: 'formulario-recargar-cuenta-saldo',
+    loadChildren: () => import('./formulario-recargar-cuenta-saldo/formulario-recargar-cuenta-saldo.module').then( m => m.FormularioRecargarCuentaSaldoPageModule)
+  },
+  {
+    path: 'recarga-cuenta-saldo-exitosa',
+    loadChildren: () => import('./recarga-cuenta-saldo-exitosa/recarga-cuenta-saldo-exitosa.module').then( m => m.RecargaCuentaSaldoExitosaPageModule)
+  },
+  {
+    path: 'recarga-cuenta-saldo-fallida',
+    loadChildren: () => import('./recarga-cuenta-saldo-fallida/recarga-cuenta-saldo-fallida.module').then( m => m.RecargaCuentaSaldoFallidaPageModule)
+  },
+  {
+    path: 'recarga-tarjeta-saldo-fallida',
+    loadChildren: () => import('./recarga-tarjeta-saldo-fallida/recarga-tarjeta-saldo-fallida.module').then( m => m.RecargaTarjetaSaldoFallidaPageModule)
+  },
+  {
     path: 'cambiar-nombre-usuario',
     loadChildren: () => import('./cambiar-nombre-usuario/cambiar-nombre-usuario.module').then( m => m.CambiarNombreUsuarioPageModule)
   },
@@ -65,7 +107,6 @@ const routes: Routes = [
     path: 'preguntas-frecuentes',
     loadChildren: () => import('./preguntas-frecuentes/preguntas-frecuentes.module').then( m => m.PreguntasFrecuentesPageModule)
   }
-
 ];
 @NgModule({
   imports: [

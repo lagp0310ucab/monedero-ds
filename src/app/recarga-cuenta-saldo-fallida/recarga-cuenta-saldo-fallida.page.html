@@ -1,0 +1,31 @@
+<ion-content>
+	<ion-grid>
+    <ion-row class="ion-justify-content-center">
+			<ion-col>
+				<!-- https://undraw.co/ -->
+				<ion-img src="../../assets/svg/undraw_cancel_u1it.svg" alt="SVG Pago Fallido"></ion-img>
+			</ion-col>
+    </ion-row>
+		<br />
+		<ion-row class="ion-justify-content-center">
+			<ion-col>
+			<h3 class="ion-text-center">Recarga Fallida</h3>
+				<p class="ion-text-center">
+					Por favor, inténtelo nuevamente.
+				</p>
+			</ion-col>
+		</ion-row>
+		<br />
+		<ion-row>
+			<ion-col>
+				<ion-button 
+					color="primary" 
+					[routerLink]="['/formulario-recargar-cuenta-saldo']" 
+					expand="block"
+				>
+					Entendido
+				</ion-button>
+			</ion-col>
+		</ion-row>
+  </ion-grid>
+</ion-content>
