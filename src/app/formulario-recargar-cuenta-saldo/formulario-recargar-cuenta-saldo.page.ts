@@ -9,36 +9,28 @@ import { AlertController } from '@ionic/angular';
 export class FormularioRecargarCuentaSaldoPage implements OnInit {
 
   monto:number;
-  confirmeMonto:number;
   constructor(public alertController: AlertController) { }
 
   ngOnInit() {
   }
+	
+	/**
+	 * Recargar Saldo. Método para llamada al backend.
+	 */
+	// TODO: Definir parámetros para este método.
+	public recargarSaldo() {
+		console.log('recargar');
+	}
 
 	/**
 	 * Verificar los datos que proporcionó el usuario.
 	 */
   public verificar()
   {
-		if (this.monto == null || this.confirmeMonto == null)  
+		if (this.monto == null)  
 			this.presentAlertNull();
 		else
-			if (this.monto != this.confirmeMonto)  
-				this.presentAlertComparar();
-  }
-
-	/**
-	 * Verificar que los montos coincidan.
-	 */
-  public async presentAlertComparar() {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Error',  
-      message: 'El campo monto y el campo confirme monto deben contener el mismo valor',
-      buttons: ['OK']
-    });
-
-    await alert.present();
+			this.recargarSaldo();
   }
 	
 	/**
@@ -48,7 +40,7 @@ export class FormularioRecargarCuentaSaldoPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Error',  
-      message: 'Los campos monto y confirme monto son obligatorios',
+      message: 'El campo monto es obligatorio.',
       buttons: ['OK']
     });
 
