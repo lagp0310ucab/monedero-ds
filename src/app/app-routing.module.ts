@@ -90,11 +90,23 @@ const routes: Routes = [
   {
     path: 'recarga-tarjeta-saldo-fallida',
     loadChildren: () => import('./recarga-tarjeta-saldo-fallida/recarga-tarjeta-saldo-fallida.module').then( m => m.RecargaTarjetaSaldoFallidaPageModule)
+  },
+  {
+    path: 'cambiar-nombre-usuario',
+    loadChildren: () => import('./cambiar-nombre-usuario/cambiar-nombre-usuario.module').then( m => m.CambiarNombreUsuarioPageModule)
+  },
+  {
+    path: 'cambiar-password',
+    loadChildren: () => import('./cambiar-password/cambiar-password.module').then( m => m.CambiarPasswordPageModule)
+  },
+  {
+    path: 'cambiar-correo-electronico',
+    loadChildren: () => import('./cambiar-correo-electronico/cambiar-correo-electronico.module').then( m => m.CambiarCorreoElectronicoPageModule)
+  },
+  {
+    path: 'preguntas-frecuentes',
+    loadChildren: () => import('./preguntas-frecuentes/preguntas-frecuentes.module').then( m => m.PreguntasFrecuentesPageModule)
   }
-
-
-
-
 ];
 @NgModule({
   imports: [
