@@ -14,8 +14,8 @@
 			<ion-col>
 				<ion-list>
 					<ion-item>
-						<ion-label>Cuenta a Debitar</ion-label>
-						<ion-select [(ngModel)]="cuentaDebitar" okText="Aceptar" cancelText="Cancelar" name="cuentaDebitar">
+						<ion-label>Monedero a Debitar</ion-label>
+						<ion-select [(ngModel)]="monederoDebitar" okText="Aceptar" cancelText="Cancelar" name="monederoDebitar">
 							<ion-select-option value="4567-CO">****-****-****-4567 - Corriente</ion-select-option>
 							<ion-select-option value="4668-AH">****-****-****-4668 - Ahorro</ion-select-option>
 						</ion-select>
@@ -59,7 +59,7 @@
 					color="primary" 
 					[routerLink]="['/tabs/inicio']" 
 					expand="block" 
-					(click)="pagosService.validarCampos(this.cuentaDebitar, this.emailDestinatario, this.monto)"
+					(click)="pagosService.validarCampos(this.monederoDebitar, this.emailDestinatario, this.monto)"
 				>
 					Enviar Pago
 				</ion-button>
