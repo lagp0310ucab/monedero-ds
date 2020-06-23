@@ -9,7 +9,7 @@ import { PagosService } from '../services/pagos.service';
 })
 export class PagosPage implements OnInit {
 	
-	private cuentaDebitar: string;
+	private monederoDebitar: string;
 	private emailDestinatario: string;
 	private monto: number;
 	private subscriptionCuenta;
@@ -17,7 +17,7 @@ export class PagosPage implements OnInit {
 	private subscriptionMonto;
 	
   constructor(private pagosService: PagosService) {
-		this.subscriptionCuenta = this.pagosService.getCuentaDebitar().subscribe(cuentaDebitar => this.cuentaDebitar = cuentaDebitar);
+		this.subscriptionCuenta = this.pagosService.getMonederoDebitar().subscribe(monederoDebitar => this.monederoDebitar = monederoDebitar);
 		this.subscriptionEmailDestinatario = this.pagosService.getEmailDestinatario().subscribe(emailDestinatario => this.emailDestinatario = emailDestinatario);
 		this.subscriptionMonto = this.pagosService.getMonto().subscribe(monto => this.monto = monto);
 	}
