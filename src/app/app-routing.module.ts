@@ -102,9 +102,6 @@ const routes: Routes = [
   {
     path: 'preguntas-frecuentes',
     loadChildren: () => import('./preguntas-frecuentes/preguntas-frecuentes.module').then( m => m.PreguntasFrecuentesPageModule)
-  },  {
-    path: 'consultar-operaciones',
-    loadChildren: () => import('./consultar-operaciones/consultar-operaciones.module').then( m => m.ConsultarOperacionesPageModule)
   },
   {
     path: 'formulario-operaciones',
