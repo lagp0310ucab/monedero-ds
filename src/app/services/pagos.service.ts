@@ -54,7 +54,7 @@ export class PagosService {
    * Valida los campos antes de enviarlos al backend para hacer el pago.
    */
   public validarCampos(monederoDebitar: string, emailDestinatario: string, monto: number) {
-    if ((monederoDebitar && monederoDebitar.match(this.CUENTA_REGEXP)) && 
+    if ((monederoDebitar && monederoDebitar.match(this.MONEDERO_REGEXP)) && 
 				(emailDestinatario && emailDestinatario.match(this.EMAIL_REGEXP)) &&
 				(monto && typeof monto === "number")) {
       this.realizarPago(monederoDebitar, emailDestinatario, monto);
