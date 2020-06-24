@@ -1,8 +1,5 @@
 <ion-header>
 	<ion-toolbar>
-		<!--<ion-buttons slot="start">
-			<ion-back-button defaultHref="/tabs/inicio"></ion-back-button>
-		</ion-buttons>-->
 		<ion-title>Realizar un Pago</ion-title>
 	</ion-toolbar>
 </ion-header>
@@ -57,7 +54,7 @@
 			<ion-col>
 				<ion-button 
 					color="primary" 
-					[routerLink]="['/tabs/inicio']" 
+					[routerLink]="['/tabs/home']" 
 					expand="block" 
 					(click)="pagosService.validarCampos(this.monederoDebitar, this.emailDestinatario, this.monto)"
 				>
@@ -67,7 +64,7 @@
 		</ion-row>
 		<ion-row>
 			<ion-col>
-				<ion-button color="light" [routerLink]="['/tabs/inicio']" expand="block">Cancelar</ion-button>
+				<ion-button color="light" [routerLink]="['/tabs/home']" expand="block">Cancelar</ion-button>
 			</ion-col>
 		</ion-row>
   </ion-grid>
