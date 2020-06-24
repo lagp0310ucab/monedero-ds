@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OperacionesService {
 	
-  constructor() {	}
+  constructor(private http: HttpClient) {	}
 
 	// https://www.intersysconsulting.com/blog/angular-components/
 	private lista = new Subject<Array<any>>();
@@ -30,35 +32,28 @@ export class OperacionesService {
 	 * Obtener todas las operaciones.
 	 */
 	public obtenerOperaciones() {
-		console.log('obtener todas');
+		return this.http.get('');
 	}
 	
 	/**
 	 * Obtener una operación específica.
 	 */
 	public obtenerOperacion(id: number) {
-		console.log('obtener id');
-	}
-	
-	/**
-	 * Crear una operación.
-	 */
-	public crearOperacion() {
-		console.log('crear');
+		return this.http.get('' + id);
 	}
 	
 	/**
 	 * Obtener una operación específica.
 	 */
 	public modificarOperacion(id: number) {
-		console.log('modificar id');
+		return this.http.put('' + id, {});
 	}
 	
 	/**
 	 * Eliminar una operación específica.
 	 */
 	public eliminarOperacion(id: number) {
-		console.log('eliminar id');
+		return this.http.delete('' + id);
 	}
 	
 	/**
