@@ -100,10 +100,6 @@ const routes: Routes = [
     loadChildren: () => import('./cambiar-correo-electronico/cambiar-correo-electronico.module').then( m => m.CambiarCorreoElectronicoPageModule)
   },
   {
-    path: 'preguntas-frecuentes',
-    loadChildren: () => import('./preguntas-frecuentes/preguntas-frecuentes.module').then( m => m.PreguntasFrecuentesPageModule)
-  },
-  {
     path: 'formulario-operaciones',
     loadChildren: () => import('./formulario-operaciones/formulario-operaciones.module').then( m => m.FormularioOperacionesPageModule)
   }
