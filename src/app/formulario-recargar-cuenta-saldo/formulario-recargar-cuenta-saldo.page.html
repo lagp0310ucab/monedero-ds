@@ -24,11 +24,12 @@
 				</ion-list>
 			</ion-col>
 		</ion-row>
+		<br />
 		<ion-row class="ion-justify-content-center">
 			<ion-col class="ion-justify-content-center">
-				<div class="ion-text-center">
-					<ion-button color="primary" (click)="verificar()" >Recargar</ion-button>
-				</div>
+				<ion-button color="primary"(click)="verificar()" expand="block">Recargar</ion-button>
+				<br />
+				<ion-button color="light" [routerLink]="['/tabs/saldo']" expand="block">Cancelar</ion-button>
 			</ion-col>
 		</ion-row>
   </ion-grid>
