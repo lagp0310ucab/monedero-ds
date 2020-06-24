@@ -9,9 +9,24 @@ import { DatosService } from '../services/datos.service';
 })
 export class CambiarPasswordPage implements OnInit {
 
+  /** 
+	 * Respuesta del backend para cualquier operación.
+	 */
+	private respuesta: any;
+
   constructor(private datosService: DatosService) { }
 
   ngOnInit() {
   }
+	
+	// TODO: Falta traer del frontend el nuevo password y pasarlo a cambiarPassword().
+	/**
+	 * Retorna la respuesta un cambio de los datos del usuario.
+	 */
+	public async obtenerRespuestaPasswordModificado() {
+		return await this.datosService.cambiarPassword('').subscribe((data: any) => {
+			this.respuesta = data
+		});
+	}
 
 }

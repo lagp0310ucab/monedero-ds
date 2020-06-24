@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatosService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 	
 	// https://www.intersysconsulting.com/blog/angular-components/
 	private nuevoUsuario = new Subject<string>();
@@ -43,28 +45,28 @@ export class DatosService {
 	private PASSWORD_REGEXP = '';
 	private EMAIL_REGEXP = '';
 	
+	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
 	/**
 	 * Cambiar nombre de usuario.
 	 */
 	public cambiarNombreUsuario(nuevoUsuario: string) {
-		// TODO: Consumir la API para hacer el cambio.
-    console.log('cambio usuario');
+    return this.http.put('', {});
 	}
 	
+	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
 	/**
 	 * Cambiar password.
 	 */
 	public cambiarPassword(password: string) {
-		// TODO: Consumir la API para hacer el cambio.
-    console.log('cambio password');
+    return this.http.put('', {});
 	}
 	
+	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
 	/**
 	 * Cambiar correo electrónico.
 	 */
 	public cambiarEmail(email: string) {
-		// TODO: Consumir la API para hacer el cambio.
-    console.log('cambio email');
+		return this.http.put('', {});
 	}
 	
 	/**

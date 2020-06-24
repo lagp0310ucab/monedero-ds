@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Subject, Observable } from 'rxjs';
+import { Subject, Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PagosService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 	
 	// https://www.intersysconsulting.com/blog/angular-components/
 	private monederoDebitar = new Subject<string>();
@@ -46,29 +48,36 @@ export class PagosService {
 	 * Obtener un pago específico.
 	 */
 	public getPago(id: number) {
-		
+		return this.http.get('' + id);
 	}
 	
 	/**
 	 * Envía los datos al backend para hacer el pago.
 	 */
 	public realizarPago(monederoDebitar: string, emailDestinatario: string, monto: number) {
-		console.log(monederoDebitar + ' ' + emailDestinatario + ' ' + monto);
-		return;
+		return this.http.post('', {
+			'monedero': this.monederoDebitar,
+			'emailDestinatario': this.emailDestinatario,
+			'monto': this.monto
+		});
 	}
 	
 	/**
 	 * Modificar un pago específico.
 	 */
 	public modificarPago(id: number) {
-		
+		return this.http.put('' + id, {
+			'monedero': this.monederoDebitar,
+			'emailDestinatario': this.emailDestinatario,
+			'monto': this.monto
+		});
 	}
 	
 	/**
 	 * Eliminar un pago específico.
 	 */
 	public eliminarPago(id: number) {
-		
+		return this.http.delete('' + id);
 	}
 	
 	/**
