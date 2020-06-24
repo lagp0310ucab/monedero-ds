@@ -85,4 +85,11 @@ export class DatosService {
 		}
   }
 	
+	/**
+	 * Cerrar la sesión del usuario en la app.
+	 */
+	public cerrarSesion() {
+		return this.http.post('', {});
+	}
+	
 }
