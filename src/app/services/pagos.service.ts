@@ -43,11 +43,32 @@ export class PagosService {
 	private EMAIL_REGEXP: string = "";
 	
 	/**
+	 * Obtener un pago específico.
+	 */
+	public getPago(id: number) {
+		
+	}
+	
+	/**
 	 * Envía los datos al backend para hacer el pago.
 	 */
 	public realizarPago(monederoDebitar: string, emailDestinatario: string, monto: number) {
 		console.log(monederoDebitar + ' ' + emailDestinatario + ' ' + monto);
 		return;
+	}
+	
+	/**
+	 * Modificar un pago específico.
+	 */
+	public modificarPago(id: number) {
+		
+	}
+	
+	/**
+	 * Eliminar un pago específico.
+	 */
+	public eliminarPago(id: number) {
+		
 	}
 	
 	/**
