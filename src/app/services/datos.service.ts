@@ -50,7 +50,7 @@ export class DatosService {
 	 * Cambiar nombre de usuario.
 	 */
 	public cambiarNombreUsuario(nuevoUsuario: string) {
-    return this.http.put('', {});
+		 return this.http.put('/api/Authentication/Modification', {});
 	}
 	
 	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
@@ -58,7 +58,7 @@ export class DatosService {
 	 * Cambiar password.
 	 */
 	public cambiarPassword(password: string) {
-    return this.http.put('', {});
+		 return this.http.put('/api/Authentication/Modification', {});
 	}
 	
 	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
@@ -66,7 +66,7 @@ export class DatosService {
 	 * Cambiar correo electrónico.
 	 */
 	public cambiarEmail(email: string) {
-		return this.http.put('', {});
+		 return this.http.put('/api/Authentication/Modification', {});
 	}
 	
 	/**
