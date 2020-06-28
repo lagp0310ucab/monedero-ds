@@ -32,28 +32,28 @@ export class OperacionesService {
 	 * Obtener todas las operaciones.
 	 */
 	public obtenerOperaciones() {
-		return this.http.get('');
+		return this.http.get('http://localhost:49681/');
 	}
 	
 	/**
 	 * Obtener una operación específica.
 	 */
 	public obtenerOperacion(id: number) {
-		return this.http.get('' + id);
+		return this.http.get('http://localhost:49681/' + id);
 	}
 	
 	/**
 	 * Obtener una operación específica.
 	 */
 	public modificarOperacion(id: number) {
-		return this.http.put('' + id, {});
+		return this.http.put('http://localhost:49681/' + id, {});
 	}
 	
 	/**
 	 * Eliminar una operación específica.
 	 */
 	public eliminarOperacion(id: number) {
-		return this.http.delete('' + id);
+		return this.http.delete('http://localhost:49681/' + id);
 	}
 	
 	/**
