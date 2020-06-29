@@ -18,6 +18,7 @@ export class CobroService {
 
   constructor(private http: HttpClient, private form: FormBuilder) { }
 
+  // Cobros realizados
   cobrosActivos(){
     const header = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     const param = new HttpParams().set('idUsuario', localStorage.getItem('idUsuario'))
@@ -25,6 +26,7 @@ export class CobroService {
     return this.http.get('http://localhost:49681/api/dashboard/cobrosactivos', {params: param, headers: header});
   }
 
+  // Cobros cancelados
   cobrosCancelados(){
     const header = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     const param = new HttpParams().set('idUsuario', localStorage.getItem('idUsuario'))
@@ -32,6 +34,7 @@ export class CobroService {
     return this.http.get('http://localhost:49681/api/dashboard/CobrosCancelados', {params: param, headers: header});
   }
 
+  // Cobros Exitosos
   cobrosExitosos(){
     const header = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     const param = new HttpParams().set('idUsuario', localStorage.getItem('idUsuario'))
@@ -39,6 +42,7 @@ export class CobroService {
     return this.http.get('http://localhost:49681/api/dashboard/CobrosExitosos', {params: param, headers: header});
   }
 
+  // Cancelar un cobro
   cancelarCobro(IdCobro){
     console.log(IdCobro);
     console.log(localStorage.getItem('token'));
@@ -58,6 +62,7 @@ export class CobroService {
     return this.http.post('http://localhost:49681/api/Transfer/CancelarCobro', null, options);
   }
 
+  // Realizar un Cobro
   realizarCobro(){
     const header = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
 

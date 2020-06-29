@@ -17,6 +17,7 @@ export class UsuarioService {
     idUsuario : [0, Validators.required]
   });
 
+  // Regresa la informacion de un usuario.
   getDatosUsuario(){
     const header = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     const param = new HttpParams().set('Usuario', localStorage.getItem('email'));
@@ -24,14 +25,17 @@ export class UsuarioService {
     return this.http.get(url, {params: param, headers: header});
   }
 
+  // Registrarse en el sistema
   registrar(registerForm) {
     return this.http.post('http://localhost:49681/api/Authentication/Register', registerForm);
   }
 
+  // Iniciar sesion en el sistema
   iniciarSesion(loginForm){
     return this.http.post('http://localhost:49681/api/Authentication/Login', loginForm);
   }
 
+  // Modificar los datos de un usuario
   modificarUsaurio(){
     const header = new HttpHeaders({Authorization: 'Bearer ' + localStorage.getItem('token')});
     const body = {
