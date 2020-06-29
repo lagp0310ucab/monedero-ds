@@ -15,7 +15,7 @@ export class SaldoService {
 	 * Obtener el saldo del usuario.
 	 */
 	public getSaldo() {
-		return this.http.get('');
+		return this.http.get('http://localhost:49681/');
 	}
 	
 }
