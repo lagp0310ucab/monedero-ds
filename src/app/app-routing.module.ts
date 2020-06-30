@@ -5,7 +5,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+		redirectTo: '/login',
+		pathMatch: 'full'
   },
   {
     path: 'pagos',
