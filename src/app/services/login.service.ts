@@ -81,7 +81,7 @@ export class LoginService {
   public login(usuario: string, email: string, password: string, comercio: boolean) {
 		//console.log(usuario, email, password, comercio);
 	  // Parametro se mandan por el Body
-		const response: Observable<any> = this.http.post('http://localhost:49683/api/Authentication/Login', {
+		const response: Observable<any> = this.http.post('http://66.42.95.58/api/Authentication/Login', {
 			'usuario': usuario,
 			'email': email,
 			'password': password,

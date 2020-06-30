@@ -32,7 +32,7 @@ export class OperacionesService {
 	 * Obtener todas las operaciones de monedero.
 	 */
 	public obtenerOperacionesMonedero(token: string, idUsuario: string, headers: any) {
-		return this.http.get('http://localhost:49681/api/HistorialOperaciones/HistorialOperacionesMonedero?idUsuario=' 
+		return this.http.get('http://66.42.95.58/api/HistorialOperaciones/HistorialOperacionesMonedero?idUsuario='
 		+ idUsuario,
 		{
 			headers: headers
@@ -43,35 +43,35 @@ export class OperacionesService {
 	 * Obtener todas las operaciones de tarjeta.
 	 */
 	public obtenerOperacionesTarjeta(token: string, idUsuario: string) {
-		return this.http.get('http://localhost:49683/api/HistorialOperaciones/HistorialOperacionesTarjeta');
+		return this.http.get('http://66.42.95.58/api/HistorialOperaciones/HistorialOperacionesTarjeta');
 	}
 	
 	/**
 	 * Obtener todas las operaciones de cuenta.
 	 */
 	public obtenerOperacionesCuenta(token: string, idUsuario: string) {
-		return this.http.get('http://localhost:49683/api/HistorialOperaciones/HistorialOperacionesCuenta');
+		return this.http.get('http://66.42.95.58/api/HistorialOperaciones/HistorialOperacionesCuenta');
 	}
 	
 	/**
 	 * Obtener una operación específica.
 	 */
 	public obtenerOperacion(id: number) {
-		return this.http.get('http://localhost:49683/' + id);
+		return this.http.get('http://66.42.95.58/' + id);
 	}
 	
 	/**
 	 * Obtener una operación específica.
 	 */
 	public modificarOperacion(id: number) {
-		return this.http.put('http://localhost:49683/' + id, {});
+		return this.http.put('http://66.42.95.58/' + id, {});
 	}
 	
 	/**
 	 * Eliminar una operación específica.
 	 */
 	public eliminarOperacion(id: number) {
-		return this.http.delete('http://localhost:49683/' + id);
+		return this.http.delete('http://66.42.95.58/' + id);
 	}
 	
 	/**

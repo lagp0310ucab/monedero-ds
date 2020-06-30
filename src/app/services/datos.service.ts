@@ -51,7 +51,7 @@ export class DatosService {
 	 */
 	public cambiarNombreUsuario(nuevoUsuario: string) {
 		// Parametro se mandan por el Body
-    return this.http.post('http://localhost:49683/api/Authentication/Modification', {});
+    return this.http.post('http://66.42.95.58/api/Authentication/Modification', {});
 	}
 	
 	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
@@ -60,7 +60,7 @@ export class DatosService {
 	 */
 	public cambiarPassword(password: string) {
 		// Parametro se mandan por el Body
-    return this.http.post('http://localhost:49683/api/Authentication/Modification', {});
+    return this.http.post('http://66.42.95.58/api/Authentication/Modification', {});
 	}
 	
 	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
@@ -69,7 +69,7 @@ export class DatosService {
 	 */
 	public cambiarEmail(email: string) {
 		// Parametro se mandan por el Body
-		return this.http.post('http://localhost:49683/api/Authentication/Modification', {});
+		return this.http.post('http://66.42.95.58/api/Authentication/Modification', {});
 	}
 	
 	/**
@@ -92,7 +92,7 @@ export class DatosService {
 	 * Cerrar la sesión del usuario en la app.
 	 */
 	public cerrarSesion() {
-		return this.http.post('http://localhost:49683/', {});
+		return this.http.post('http://66.42.95.58/', {});
 	}
 	
 }
