@@ -28,14 +28,14 @@ export class LoginService {
 		this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + nuevoAuth);
 	}
 	
-	private username = new Subject<string>();
+	private username: string;
 	
 	updateUsername(nuevoUser: string) {
-		this.username.next(nuevoUser);
+		this.username = nuevoUser;
 	}
 	
-	getUsername(): Observable<string> {
-		return this.username.asObservable();
+	getUsername(): string {
+		return this.username;
 	}
 	
 	// https://www.intersysconsulting.com/blog/angular-components/
