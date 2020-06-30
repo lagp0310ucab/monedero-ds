@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
   constructor(private http: HttpClient, private loginService: LoginService) { }
 	
   ngOnInit() {
-		const response: Observable<any> = this.http.get('http://localhost:49681/api/Dashboard/InformacionPersona?Usuario='
+		const response: Observable<any> = this.http.get('http://localhost:49683/api/Dashboard/InformacionPersona?Usuario='
 		+ this.loginService.getUsername(),
 		{
 			headers: this.loginService.getAuthHeader()

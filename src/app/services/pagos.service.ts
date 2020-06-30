@@ -48,14 +48,14 @@ export class PagosService {
 	 * Obtener un pago específico.
 	 */
 	public getPago(id: number) {
-		return this.http.get('http://localhost:49681/' + id);
+		return this.http.get('http://localhost:49683/' + id);
 	}
 	
 	/**
 	 * Envía los datos al backend para hacer el pago.
 	 */
 	public realizarPago(token: string, idUsuario: string, headers: any, json: any) {
-		return this.http.post('http://localhost:49681/api/transfer/RealizarPagoMonedero', json,
+		return this.http.post('http://localhost:49683/api/transfer/RealizarPagoMonedero', json,
 		{
 			headers: headers
 		});
@@ -65,7 +65,7 @@ export class PagosService {
 	 * Modificar un pago específico.
 	 */
 	public modificarPago(id: number) {
-		return this.http.put('http://localhost:49681/' + id, {
+		return this.http.put('http://localhost:49683/' + id, {
 			'monedero': this.monederoDebitar,
 			'emailDestinatario': this.emailDestinatario,
 			'monto': this.monto
@@ -76,7 +76,7 @@ export class PagosService {
 	 * Eliminar un pago específico.
 	 */
 	public eliminarPago(id: number) {
-		return this.http.delete('http://localhost:49681/' + id);
+		return this.http.delete('http://localhost:49683/' + id);
 	}
 	
 	/**

@@ -15,7 +15,7 @@ export class SaldoService {
 	 * Obtener el saldo del usuario.
 	 */
 	public getSaldo(token: string, idUsuario: string, headers: any) {
-		return this.http.get('http://localhost:49681/api/Monedero/Consultar?idUsuario=' + idUsuario, 
+		return this.http.get('http://localhost:49683/api/Monedero/Consultar?idUsuario=' + idUsuario,
 		{
 			headers: headers
 		});
@@ -25,7 +25,7 @@ export class SaldoService {
 	 * Obtener las tarjetas del usuario.
 	 */
 	public obtenerTarjetas(token: string, idUsuario: string, headers: any) {
-		return this.http.get('http://localhost:49681/api/Dashboard/Tarjetas?idUsuario=' + idUsuario,
+		return this.http.get('http://localhost:49683/api/Dashboard/Tarjetas?idUsuario=' + idUsuario,
 		{
 			headers: headers
 		});
@@ -35,7 +35,7 @@ export class SaldoService {
 	 * Obtener las cuentas del usuario.
 	 */
 	public obtenerCuentas(token: string, idUsuario: string, headers: any) {
-		return this.http.get('http://localhost:49681/api/Dashboard/Cuentas?idUsuario=' + idUsuario,
+		return this.http.get('http://localhost:49683/api/Dashboard/Cuentas?idUsuario=' + idUsuario,
 		{
 			headers: headers
 		});
@@ -45,7 +45,7 @@ export class SaldoService {
 	 * Recargar con una tarjeta del usuario.
 	 */
 	public recargarConTarjeta(token: string, idUsuario: string, headers: any) {
-		return this.http.post('http://localhost:49681/api/Monedero/RecargaMonederoTarjeta',
+		return this.http.post('http://localhost:49683/api/Monedero/RecargaMonederoTarjeta',
 		{
 			'idUsuarioReceptor': 0,
 			'idMedioPaga': 0,
@@ -61,7 +61,7 @@ export class SaldoService {
 	 * Recargar con una cuenta del usuario.
 	 */
 	public recargarConCuenta(token: string, idUsuario: string, headers: any) {
-		return this.http.post('http://localhost:49681/api/Monedero/RecargaMonederoCuenta',
+		return this.http.post('http://localhost:49683/api/Monedero/RecargaMonederoCuenta',
 		{
 			'idUsuarioReceptor': 0,
 			'idMedioPaga': 0,
