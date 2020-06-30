@@ -85,9 +85,9 @@ export class LoginService {
 				this.updateIdUsuario(res.result.userID);
 				this.router.navigate(['/tabs/home']);
 			},
-			error(msg) {
+			async error(msg) {
 				console.log('Error en el login: ', msg);
-				const alert = this.alertController.create({
+				const alert = await this.alertController.create({
 					header: 'Error',
 					message: 'Ocurrió un error inesperado. Por favor, inténtelo de nuevo.',
 					buttons: [
@@ -98,7 +98,7 @@ export class LoginService {
 					]
 				});
 
-				alert.present();
+				await alert.present();
 			}
 		});
 		
