@@ -39,7 +39,7 @@ export class OperacionesPage implements OnInit {
 	 * Recibe operaciones del usuario con los datos del Observable declarado en operaciones.service.
 	 */
 	public async obtenerOperaciones(token: string, idUsuario: string) {
-		await this.operacionesService.obtenerOperacionesMonedero(token, idUsuario).subscribe((data: any) => {
+		await this.operacionesService.obtenerOperacionesMonedero(token, idUsuario, this.loginService.getAuthHeader()).subscribe((data: any) => {
 			this.operacionesUsuario = data
 		});
 		

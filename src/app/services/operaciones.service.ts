@@ -31,8 +31,11 @@ export class OperacionesService {
 	/**
 	 * Obtener todas las operaciones de monedero.
 	 */
-	public obtenerOperacionesMonedero(token: string, idUsuario: string) {
-		return this.http.get('http://localhost:49681/api/HistorialOperaciones/HistorialOperacionesMonedero/' + idUsuario);
+	public obtenerOperacionesMonedero(token: string, idUsuario: string, headers: any) {
+		return this.http.get('http://localhost:49681/api/HistorialOperaciones/HistorialOperacionesMonedero/' + idUsuario,
+		{
+			headers: headers
+		});
 	}
 	
 	/**

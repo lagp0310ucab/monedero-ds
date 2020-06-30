@@ -14,11 +14,15 @@ export class LoginService {
 
   constructor(public alertController: AlertController, private http: HttpClient, private router: Router) { }
 	
-	const httpOptions = {
+	public const httpOptions = {
 		headers: new HttpHeaders({
-			'Authorization': 'Bearer'
+			'Authorization': 'Bearer '
 		})
 	};
+	
+	getAuthHeader(): any {
+		return this.httpOptions.headers;
+	}
 	
 	updateAuthHeader(nuevoAuth: string) {
 		this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + nuevoAuth);
@@ -74,7 +78,7 @@ export class LoginService {
 			'comercio': comercio
 		});
 		
-		if(/*response.result.token*/true) {
+		if(response.result.token) {
 			this.updateToken(response.result.token);
 			this.updateAuthHeader(response.result.token);
 			this.updateIdUsuario(response.result.userID);
