@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+import { AlertController } from '@ionic/angular';
 
 import { Subject, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
@@ -9,7 +12,17 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  constructor(public alertController: AlertController, private http: HttpClient, private router: Router) { }
+	
+	const httpOptions = {
+		headers: new HttpHeaders({
+			'Authorization': 'Bearer'
+		})
+	};
+	
+	updateAuthHeader(nuevoAuth: string) {
+		this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + nuevoAuth);
+	}
 	
 	// https://www.intersysconsulting.com/blog/angular-components/
 	private email = new Subject<string>();
@@ -21,6 +34,28 @@ export class LoginService {
 	getEmail(): Observable<string> {
 		return this.email.asObservable();
 	}
+	
+	// Token obtenido del login del usuario para acciones subyacentes.
+	private token: string;
+	
+	getToken(): string {
+		return this.token;
+	}
+	
+	updateToken(nuevoToken: string) {
+		this.token = nuevoToken;
+	}
+	
+	// ID de usuario obtenido del login del usuario para acciones subyacentes.
+	private idUsuario: string;
+	
+	getIdUsuario(): string {
+		return this.idUsuario;
+	}
+	
+	updateIdUsuario(nuevoIdUsuario: string) {
+		this.idUsuario = nuevoIdUsuario;
+	}
 
   // TODO: Definir Regexp.
   private EMAIL_REGEXP = '';
@@ -29,29 +64,78 @@ export class LoginService {
   /**
    * Se encarga de llamar al backend para hacer el login.
    */
-  public login(email: string, password: string) {
+  public async login(usuario: string, email: string, password: string, comercio: boolean) {
+		//console.log(usuario, email, password, comercio);
 	  // Parametro se mandan por el Body
-		return this.http.post('http://localhost:49681/api/Authentication/Login', {
+		let response: any = await this.http.post('http://localhost:49681/api/Authentication/Login', {
+			'usuario': usuario,
 			'email': email,
-			'password': password
+			'password': password,
+			'comercio': comercio
 		});
+		
+		if(/*response.result.token*/true) {
+			this.updateToken(response.result.token);
+			this.updateAuthHeader(response.result.token);
+			this.updateIdUsuario(response.result.userID);
+			this.router.navigate(['/tabs/home']);
+		} else {
+			console.log('Error en el login.');
+			const alert = await this.alertController.create({
+				header: 'Error',
+				message: 'Ocurrió un error inesperado. Por favor, inténtelo de nuevo.',
+				buttons: [
+					{
+						text: 'Entendido',
+						role: 'cancel'
+					}
+				]
+			});
+
+			await alert.present();
+		}
   }
 
   /**
    * Valida los campos antes de enviarlos al backend para hacer el login.
    */
-  public validarCampos(email: string, password: string) {
-    if (email && email.match(this.EMAIL_REGEXP) && password && password.match(this.PASSWORD_REGEXP)) {
-      this.login(email, password);
-    }
+  public async validarCampos(usuario: string, email: string, password: string, comercio: boolean) {
+		// TODO: Validar con expresiones regulares.
+    if (usuario && email && password && comercio) {
+      this.login(usuario, email, password, comercio);
+    } else {
+			const alert = await this.alertController.create({
+				header: 'Campos Vacíos',
+				message: 'Por favor, rellene todos los campos.',
+				buttons: [
+					{
+						text: 'Entendido',
+						role: 'cancel'
+					}
+				]
+			});
+
+			await alert.present();
+		}
   }
 	
 	/**
 	 * Recuperar datos de usuario. 
 	 */
-	public recuperarDatos(email: string) {
-		if(!email || !email.match(this.EMAIL_REGEXP)) {
-			console.log('Datos Vacíos.');
+	public async recuperarDatos(email: string) {
+		if(!email) {
+			const alert = await this.alertController.create({
+				header: 'Campo Vacío',
+				message: 'Por favor, rellene todos los campos.',
+				buttons: [
+					{
+						text: 'Entendido',
+						role: 'cancel'
+					}
+				]
+			});
+
+			await alert.present();
 		}
 		
 		// Actualizar el valor de email para pasarlo a los componentes que lo requieren.

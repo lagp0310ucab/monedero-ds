@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { BooleanValueAccessor } from '@ionic/angular';
 
+import { LoginService } from '../services/login.service';
+
 @Component({
   selector: 'app-recargartarjeta',
   templateUrl: './recargartarjeta.page.html',
@@ -66,7 +68,7 @@ export class RecargartarjetaPage implements OnInit {
 
   ]
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../services/login.service';
 import { PagosService } from '../services/pagos.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class PagosPage implements OnInit {
 	private subscriptionEmailDestinatario;
 	private subscriptionMonto;
 	
-  constructor(private pagosService: PagosService) {
+  constructor(private pagosService: PagosService, private loginService: LoginService) {
 		this.subscriptionMonedero = this.pagosService.getMonederoDebitar().subscribe(monederoDebitar => this.monederoDebitar = monederoDebitar);
 		this.subscriptionEmailDestinatario = this.pagosService.getEmailDestinatario().subscribe(emailDestinatario => this.emailDestinatario = emailDestinatario);
 		this.subscriptionMonto = this.pagosService.getMonto().subscribe(monto => this.monto = monto);

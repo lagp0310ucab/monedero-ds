@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
+import { LoginService } from '../services/login.service';
+
 @Component({
   selector: 'app-formulario-recargar-tarjeta-saldo',
   templateUrl: './formulario-recargar-tarjeta-saldo.page.html',
@@ -9,7 +11,7 @@ import { AlertController } from '@ionic/angular';
 export class FormularioRecargarTarjetaSaldoPage implements OnInit {
 
   monto:number;
-  constructor(public alertController: AlertController) { }
+  constructor(public alertController: AlertController, private loginService: LoginService) { }
   
   ngOnInit() {
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../services/login.service';
 import { OperacionesService } from '../services/operaciones.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class FormularioOperacionesPage implements OnInit {
   private operaciones: Array<any>;
 	private subscription;
 	
-  constructor(private operacionesService: OperacionesService) {
+  constructor(private operacionesService: OperacionesService, private loginService: LoginService) {
 		this.subscription = this.operacionesService.getLista().subscribe(lista => this.operaciones = lista);
 	}
 

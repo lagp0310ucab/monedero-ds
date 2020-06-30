@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../services/login.service';
+
 @Component({
   selector: 'app-recargar-cuenta-bancaria',
   templateUrl: './recargar-cuenta-bancaria.page.html',
@@ -62,7 +64,7 @@ export class RecargarCuentaBancariaPage implements OnInit {
 
   ]
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
   }

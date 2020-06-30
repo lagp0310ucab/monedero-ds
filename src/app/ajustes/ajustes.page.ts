@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
+import { LoginService } from '../services/login.service';
 import { DatosService } from '../services/datos.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { DatosService } from '../services/datos.service';
 export class AjustesPage implements OnInit {
 
   constructor(public alertController: AlertController,
-							private datosService: DatosService) { }
+							private datosService: DatosService,
+							private loginService: LoginService) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../services/login.service';
 import { DatosService } from '../services/datos.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class CambiarNombreUsuarioPage implements OnInit {
 	 */
 	private respuesta: any;
 
-  constructor(private datosService: DatosService) { }
+  constructor(private datosService: DatosService, private loginService: LoginService) { }
 
   ngOnInit() {
   }

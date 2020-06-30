@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LoginService } from '../services/login.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
+	private token: string;
+	
   ngOnInit() {
+		this.token = this.loginService.getToken();
   }
 
 }

@@ -29,10 +29,24 @@ export class OperacionesService {
 	}
 	
 	/**
-	 * Obtener todas las operaciones.
+	 * Obtener todas las operaciones de monedero.
 	 */
-	public obtenerOperaciones() {
-		return this.http.get('http://localhost:49681/');
+	public obtenerOperacionesMonedero(token: string, idUsuario: string) {
+		return this.http.get('http://localhost:49681/api/HistorialOperaciones/HistorialOperacionesMonedero/' + idUsuario);
+	}
+	
+	/**
+	 * Obtener todas las operaciones de tarjeta.
+	 */
+	public obtenerOperacionesTarjeta(token: string, idUsuario: string) {
+		return this.http.get('http://localhost:49681/api/HistorialOperaciones/HistorialOperacionesTarjeta');
+	}
+	
+	/**
+	 * Obtener todas las operaciones de cuenta.
+	 */
+	public obtenerOperacionesCuenta(token: string, idUsuario: string) {
+		return this.http.get('http://localhost:49681/api/HistorialOperaciones/HistorialOperacionesCuenta');
 	}
 	
 	/**

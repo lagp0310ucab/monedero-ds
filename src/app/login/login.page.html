@@ -12,11 +12,24 @@
     <ion-row class="ion-justify-content-center">
 			<div>
 				<ion-item>
+					<ion-label position="floating">Usuario</ion-label>
+					<ion-input 
+						[(ngModel)]="usuario"
+						type="text" 
+						autofocus="true" 
+						enterkeyhint="next" 
+						inputmode="text" 
+						name="usuario" 
+						placeholder="user1234" 
+						required="true">
+					</ion-input>
+				</ion-item>
+				<ion-item>
 					<ion-label position="floating">Correo Electrónico</ion-label>
 					<ion-input 
 						[(ngModel)]="email"
 						type="email" 
-						autofocus="true" 
+						autofocus="false" 
 						enterkeyhint="next" 
 						inputmode="email" 
 						name="email" 
@@ -37,11 +50,14 @@
 					</ion-input>
 				</ion-item>
 				<br />
+				<ion-item>
+					<ion-label>¿Comercio?</ion-label>
+					<ion-checkbox slot="start" color="primary" [(ngModel)]="boolComercio"></ion-checkbox>
+				</ion-item>
 				<br />
 				<br />
-				<!-- TODO: Eliminar el routerlink de aquí. Para pruebas está bien, pero lo que se debe hacer es validar el login mediante el evento de loginService cuando 
-				se haga click en el botón. -->
-				<ion-button color="primary" [routerLink]="['/home']" expand="block" (click)="loginService.validarCampos(this.email, this.password)">Iniciar Sesión</ion-button>
+				<br />
+				<ion-button type="submit" color="primary" expand="block" (click)="loginService.validarCampos(this.usuario, this.email, this.password, this.boolComercio)">Iniciar Sesión</ion-button>
 			</div>
     </ion-row>
     <br />
