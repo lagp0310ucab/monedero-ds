@@ -56,7 +56,7 @@
 					color="primary" 
 					[routerLink]="['/tabs/home']" 
 					expand="block" 
-					(click)="pagosService.validarCampos(this.monederoDebitar, this.emailDestinatario, this.monto)"
+					(click)="this.realizarPago(this.monederoDebitar, this.emailDestinatario, this.monto)"
 				>
 					Enviar Pago
 				</ion-button>

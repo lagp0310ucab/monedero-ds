@@ -41,4 +41,36 @@ export class SaldoService {
 		});
 	}
 	
+	/**
+	 * Recargar con una tarjeta del usuario.
+	 */
+	public recargarConTarjeta(token: string, idUsuario: string, headers: any) {
+		return this.http.post('http://localhost:49681/api/Monedero/RecargaMonederoTarjeta',
+		{
+			'idUsuarioReceptor': 0,
+			'idMedioPaga': 0,
+			'monto': 0,
+			'idOperacion': 0
+		},
+		{
+			headers: headers
+		});
+	}
+	
+	/**
+	 * Recargar con una cuenta del usuario.
+	 */
+	public recargarConCuenta(token: string, idUsuario: string, headers: any) {
+		return this.http.post('http://localhost:49681/api/Monedero/RecargaMonederoCuenta',
+		{
+			'idUsuarioReceptor': 0,
+			'idMedioPaga': 0,
+			'monto': 0,
+			'idOperacion': 0
+		},
+		{
+			headers: headers
+		});
+	}
+	
 }

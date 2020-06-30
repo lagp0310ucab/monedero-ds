@@ -26,5 +26,14 @@ export class RecargarCuentaBancariaPage implements OnInit {
 			this.cuentas = data
 		});
 	}
+	
+	/**
+	 * Recargar con una cuenta del usuario.
+	 */
+	public async recargarConCuenta(token: string, idUsuario: string, headers: any) {
+		return await this.saldoService.recargarConCuenta(token, idUsuario, headers).subscribe((data: any) => {
+			console.log(data);
+		});
+	}
 
 }

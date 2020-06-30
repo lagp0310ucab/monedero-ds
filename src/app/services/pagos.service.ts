@@ -54,11 +54,10 @@ export class PagosService {
 	/**
 	 * Envía los datos al backend para hacer el pago.
 	 */
-	public realizarPago(monederoDebitar: string, emailDestinatario: string, monto: number) {
-		return this.http.post('http://localhost:49681/', {
-			'monedero': this.monederoDebitar,
-			'emailDestinatario': this.emailDestinatario,
-			'monto': this.monto
+	public realizarPago(token: string, idUsuario: string, headers: any, json: any) {
+		return this.http.post('http://localhost:49681/api/transfer/RealizarPagoMonedero', json,
+		{
+			headers: headers
 		});
 	}
 	

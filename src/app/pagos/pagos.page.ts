@@ -81,5 +81,20 @@ export class PagosPage implements OnInit {
 			this.respuesta = data
 		});
 	}
+	
+	// TODO: Completar. Falta adaptar el frontend para que el usuario seleccione los datos requeridos.
+	/**
+	 * Realiza un pago.
+	 */
+	public async realizarPago(token: string, idUsuario: string, headers: any, json: any) {
+		return await this.pagosService.realizarPago(
+			this.loginService.getToken(), 
+			this.loginService.getIdUsuario(), 
+			this.loginService.getAuthHeader(), 
+			json
+		).subscribe((data: any) => {
+			console.log(data);
+		});
+	}
 
 }

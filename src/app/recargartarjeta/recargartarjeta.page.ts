@@ -28,5 +28,14 @@ export class RecargartarjetaPage implements OnInit {
 			this.tarjetas = data
 		});
 	}
+	
+	/**
+	 * Recargar con una tarjeta del usuario.
+	 */
+	public async recargarConTarjeta(token: string, idUsuario: string, headers: any) {
+		return await this.saldoService.recargarConTarjeta(token, idUsuario, headers).subscribe((data: any) => {
+			console.log(data);
+		});
+	}
 
 }
