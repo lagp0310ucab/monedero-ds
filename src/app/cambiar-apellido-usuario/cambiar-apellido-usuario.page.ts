@@ -4,16 +4,11 @@ import { LoginService } from '../services/login.service';
 import { DatosService } from '../services/datos.service';
 
 @Component({
-  selector: 'app-cambiar-nombre-usuario',
-  templateUrl: './cambiar-nombre-usuario.page.html',
-  styleUrls: ['./cambiar-nombre-usuario.page.scss'],
+  selector: 'app-cambiar-apellido-usuario',
+  templateUrl: './cambiar-apellido-usuario.page.html',
+  styleUrls: ['./cambiar-apellido-usuario.page.scss'],
 })
-export class CambiarNombreUsuarioPage implements OnInit {
-
-  /** 
-	 * Respuesta del backend para cualquier operación.
-	 */
-	private respuesta: any;
+export class CambiarApellidoUsuarioPage implements OnInit {
 
   constructor(private datosService: DatosService, private loginService: LoginService) { }
 
@@ -24,19 +19,19 @@ export class CambiarNombreUsuarioPage implements OnInit {
 	/**
 	 * Retorna la respuesta un cambio de los datos del usuario.
 	 */
-	public async obtenerRespuestaNombreDeUsuarioModificado(nuevoUsuario: string) {
+	public async obtenerRespuestaApellidoDeUsuarioModificado(nuevoApellido: string) {
 		return await this.datosService.cambiarDatosUsuario(
 		this.loginService.getAuthHeader(), 
 		{
-			'nombre': nuevoUsuario,
-			'apellido': this.loginService.getApellidoUsuario(),
+			'nombre': this.loginService.getNombreUsuario(),
+			'apellido': nuevoApellido,
 			'telefono': this.loginService.getTelefonoUsuario(),
 			'direccion': this.loginService.getDireccionUsuario(),
 			'idUsuario': this.loginService.getIdUsuario()
 		}).subscribe((data: any) => {
 			console.log(data);
-			this.datosService.updateNuevoUsuario('');
+			this.datosService.updateNuevoApellido('');
 		});
 	}
-	
+
 }

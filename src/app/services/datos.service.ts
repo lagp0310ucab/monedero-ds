@@ -15,6 +15,33 @@ export class DatosService {
 	private nuevoUsuario = new Subject<string>();
 	private nuevoPassword = new Subject<string>();
 	private nuevoEmail = new Subject<string>();
+	private nuevoApellido = new Subject<string>();
+	private nuevoTelefono = new Subject<string>();
+	private nuevaDireccion = new Subject<string>();
+	
+	updateNuevoApellido(nuevoApellido: string) {
+		this.nuevoApellido.next(nuevoApellido);
+	}
+	
+	getNuevoApellido(): Observable<string> {
+		return this.nuevoApellido.asObservable();
+	}
+	
+	updateNuevaDireccion(nuevaDireccion: string) {
+		this.nuevaDireccion.next(nuevaDireccion);
+	}
+	
+	getNuevaDireccion(): Observable<string> {
+		return this.nuevaDireccion.asObservable();
+	}
+	
+	updateNuevoTelefono(nuevoTelefono: string) {
+		this.nuevoTelefono.next(nuevoTelefono);
+	}
+	
+	getNuevoTelefono(): Observable<string> {
+		return this.nuevoTelefono.asObservable();
+	}
 	
 	updateNuevoUsuario(nuevoUsuario: string) {
 		this.nuevoUsuario.next(nuevoUsuario);
@@ -47,11 +74,14 @@ export class DatosService {
 	
 	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
 	/**
-	 * Cambiar nombre de usuario.
+	 * Cambiar datos de usuario.
 	 */
-	public cambiarNombreUsuario(nuevoUsuario: string) {
+	public cambiarDatosUsuario(headers: any, json: any) {
 		// Parametro se mandan por el Body
-    return this.http.post('http://66.42.95.58/api/Authentication/Modification', {});
+    return this.http.post('http://66.42.95.58/api/Authentication/Modification', json,
+		{
+			headers: headers
+		});
 	}
 	
 	// TODO: Agregar id usuario como parámetro. Solicitar a otro servicio desde aquí?.
@@ -77,13 +107,13 @@ export class DatosService {
    */
   public validarCampos(nuevoCampo: string, nuevoCampoConfirmacion: string, tipo: string) {
     if ((tipo === "USUARIO") && (nuevoCampo && nuevoCampo.match(this.USUARIO_REGEXP))) {
-      this.cambiarNombreUsuario(nuevoCampo);
+      //this.cambiarNombreUsuario(nuevoCampo);
 			this.updateNuevoUsuario("");
     } else if((tipo === "PASSWORD") && (nuevoCampo === nuevoCampoConfirmacion) && (nuevoCampo && nuevoCampo.match(this.PASSWORD_REGEXP))) {
-			this.cambiarPassword(nuevoCampo);
+			//this.cambiarPassword(nuevoCampo);
 			this.updateNuevoPassword("");
 		} else if((tipo === "EMAIL") && (nuevoCampo && nuevoCampo.match(this.EMAIL_REGEXP))) {
-			this.cambiarEmail(nuevoCampo);
+			//this.cambiarEmail(nuevoCampo);
 			this.updateNuevoEmail("");
 		}
   }

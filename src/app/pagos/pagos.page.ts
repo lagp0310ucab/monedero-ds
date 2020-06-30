@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { LoginService } from '../services/login.service';
 import { PagosService } from '../services/pagos.service';
+
+import { Subject, Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pagos',
@@ -27,7 +31,7 @@ export class PagosPage implements OnInit {
 	private subscriptionEmailDestinatario;
 	private subscriptionMonto;
 	
-  constructor(private pagosService: PagosService, private loginService: LoginService) {
+  constructor(private pagosService: PagosService, private loginService: LoginService, private http: HttpClient) {
 		this.subscriptionMonedero = this.pagosService.getMonederoDebitar().subscribe(monederoDebitar => this.monederoDebitar = monederoDebitar);
 		this.subscriptionEmailDestinatario = this.pagosService.getEmailDestinatario().subscribe(emailDestinatario => this.emailDestinatario = emailDestinatario);
 		this.subscriptionMonto = this.pagosService.getMonto().subscribe(monto => this.monto = monto);
@@ -56,11 +60,11 @@ export class PagosPage implements OnInit {
 	/**
 	 * Retorna la respuesta de un pago realizado en pagos.service.
 	 */
-	public async obtenerRespuestaPagoRealizado() {
-		return await this.pagosService.realizarPago('', '', 0).subscribe((data: any) => {
+	/*public async obtenerRespuestaPagoRealizado() {
+		return await this.pagosService.realizarPago('', '', '', {}).subscribe((data: any) => {
 			this.respuesta = data
 		});
-	}
+	}*/
 	
 	// TODO: Falta traer del frontend el id del pago y pasarlo a modificarPago().
 	/**
@@ -87,13 +91,29 @@ export class PagosPage implements OnInit {
 	 * Realiza un pago.
 	 */
 	public async realizarPago(token: string, idUsuario: string, headers: any, json: any) {
-		return await this.pagosService.realizarPago(
-			this.loginService.getToken(), 
-			this.loginService.getIdUsuario(), 
-			this.loginService.getAuthHeader(), 
-			json
-		).subscribe((data: any) => {
-			console.log(data);
+		const response: Observable<any> = await this.http.get(
+		'http://66.42.95.58/api/Dashboard/InformacionPersona?Usuario=' + json.usuarioReceptor,
+		{
+			headers: this.loginService.getAuthHeader()
+		});
+		
+		let that = this;
+		const suscription = response.subscribe({
+			next(res) {
+				json.idUsuarioReceptor = res.result.idUsuario;
+		
+				that.pagosService.realizarPago(
+					that.loginService.getToken(), 
+					that.loginService.getIdUsuario(), 
+					that.loginService.getAuthHeader(), 
+					json
+				).subscribe((data: any) => {
+					console.log(data);
+				});
+			},
+			async error(msg) {
+				console.log('Error: ', msg);
+			}
 		});
 	}
 

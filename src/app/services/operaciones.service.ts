@@ -77,7 +77,7 @@ export class OperacionesService {
 	/**
 	 * Filtrar las operaciones según requerimientos del usuario.
 	 */
-  public filtrarOperaciones(operaciones) {
+  /*public filtrarOperaciones(operaciones) {
 		if (operaciones === 'todas') {
 			this.updateLista([
 				{
@@ -210,6 +210,6 @@ export class OperacionesService {
         }
       ]);
     }
-	}
+	}*/
 	
 }

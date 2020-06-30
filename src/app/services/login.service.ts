@@ -28,6 +28,32 @@ export class LoginService {
 		this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + nuevoAuth);
 	}
 	
+	private datosUsuario: any;
+	
+	getNombreUsuario(): any {
+		return this.datosUsuario.nombre;
+	}
+	
+	getApellidoUsuario(): any {
+		return this.datosUsuario.apellido;
+	}
+	
+	getTelefonoUsuario(): any {
+		return this.datosUsuario.telefono;
+	}
+	
+	getDireccionUsuario(): any {
+		return this.datosUsuario.direccion;
+	}
+	
+	getDatosUsuario(): any {
+		return this.datosUsuario;
+	}
+	
+	updateDatosUsuario(nuevosDatos: any) {
+		this.datosUsuario = nuevosDatos;
+	}
+	
 	private username: string;
 	
 	updateUsername(nuevoUser: string) {
@@ -78,14 +104,14 @@ export class LoginService {
   /**
    * Se encarga de llamar al backend para hacer el login.
    */
-  public login(usuario: string, email: string, password: string, comercio: boolean) {
+  public login(usuario: string, email: string, password: string) {
 		//console.log(usuario, email, password, comercio);
 	  // Parametro se mandan por el Body
 		const response: Observable<any> = this.http.post('http://66.42.95.58/api/Authentication/Login', {
 			'usuario': usuario,
 			'email': email,
 			'password': password,
-			'comercio': comercio
+			'comercio': false
 		});
 
 		this.updateUsername(usuario);
@@ -140,10 +166,10 @@ export class LoginService {
   /**
    * Valida los campos antes de enviarlos al backend para hacer el login.
    */
-  public async validarCampos(usuario: string, email: string, password: string, comercio: boolean = false) {
+  public async validarCampos(usuario: string, email: string, password: string) {
 		// TODO: Validar con expresiones regulares.
     if (usuario && email && password) {
-      this.login(usuario, email, password, comercio);
+      this.login(usuario, email, password);
     } else {
 			const alert = await this.alertController.create({
 				header: 'Campos Vacíos',

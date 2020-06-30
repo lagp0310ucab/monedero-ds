@@ -9,26 +9,16 @@
 		<br />
     <ion-row class="ion-justify-content-center">
 			<ion-col>
-				<ion-list>
-					<ion-item>
-						<ion-label>Monedero a Debitar</ion-label>
-						<ion-select [(ngModel)]="monederoDebitar" okText="Aceptar" cancelText="Cancelar" name="monederoDebitar">
-							<ion-select-option value="4567-CO">****-****-****-4567 - Corriente</ion-select-option>
-							<ion-select-option value="4668-AH">****-****-****-4668 - Ahorro</ion-select-option>
-						</ion-select>
-					</ion-item>
-				</ion-list>
-				<br />
 				<ion-item>
-					<ion-label position="floating">Correo Electrónico Destinatario</ion-label>
+					<ion-label>Usuario Receptor</ion-label>
 					<ion-input 
-						[(ngModel)]="emailDestinatario"
-						type="email" 
+						[(ngModel)]="usernameDestino"
+						type="text" 
 						autofocus="true" 
 						enterkeyhint="next" 
-						inputmode="email" 
-						name="emailDestinatario" 
-						placeholder="email@example.com" 
+						inputmode="text" 
+						name="usernameDestino" 
+						placeholder="p.ej. user1234" 
 						required="true">
 					</ion-input>
 				</ion-item>
@@ -56,7 +46,12 @@
 					color="primary" 
 					[routerLink]="['/tabs/home']" 
 					expand="block" 
-					(click)="this.realizarPago(this.monederoDebitar, this.emailDestinatario, this.monto)"
+					(click)="this.realizarPago('', '', '', {
+						'idUsuarioReceptor': this.usernameDestino,
+						'idMedioPaga': 1,
+						'monto': this.monto,
+						'idOperacion': 1
+					})"
 				>
 					Enviar Pago
 				</ion-button>

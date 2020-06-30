@@ -102,7 +102,19 @@ const routes: Routes = [
   {
     path: 'formulario-operaciones',
     loadChildren: () => import('./formulario-operaciones/formulario-operaciones.module').then( m => m.FormularioOperacionesPageModule)
+  },  {
+    path: 'cambiar-apellido-usuario',
+    loadChildren: () => import('./cambiar-apellido-usuario/cambiar-apellido-usuario.module').then( m => m.CambiarApellidoUsuarioPageModule)
+  },
+  {
+    path: 'cambiar-telefono-usuario',
+    loadChildren: () => import('./cambiar-telefono-usuario/cambiar-telefono-usuario.module').then( m => m.CambiarTelefonoUsuarioPageModule)
+  },
+  {
+    path: 'cambiar-direccion-usuario',
+    loadChildren: () => import('./cambiar-direccion-usuario/cambiar-direccion-usuario.module').then( m => m.CambiarDireccionUsuarioPageModule)
   }
+
 
 ];
 @NgModule({

@@ -19,20 +19,14 @@ export class OperacionesPage implements OnInit {
 	 * Respuesta del backend para cualquier operación de Operaciones.
 	 */
 	private respuesta: any;
-
-	private operaciones: Array<any>;
-	private subscription;
 	
-  constructor(private operacionesService: OperacionesService, private loginService: LoginService) {
-		this.subscription = this.operacionesService.getLista().subscribe(lista => this.operaciones = lista);
-	}
+  constructor(private operacionesService: OperacionesService, private loginService: LoginService) { }
 
   ngOnInit() {
 		this.obtenerOperaciones(this.loginService.getToken(), this.loginService.getIdUsuario(), this.loginService.getAuthHeader());
   }
 	
 	ngOnDestroy() {
-		this.subscription.unsubscribe();
 	}
 	
 	/**

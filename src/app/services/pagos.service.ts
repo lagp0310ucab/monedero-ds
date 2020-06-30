@@ -86,7 +86,7 @@ export class PagosService {
     if ((monederoDebitar && monederoDebitar.match(this.MONEDERO_REGEXP)) && 
 				(emailDestinatario && emailDestinatario.match(this.EMAIL_REGEXP)) &&
 				(monto && typeof monto === "number")) {
-      this.realizarPago(monederoDebitar, emailDestinatario, monto);
+      this.realizarPago('', '', '', {});
 			this.updateMonederoDebitar("");
 			this.updateEmailDestinatario("");
 			this.updateMonto(0);

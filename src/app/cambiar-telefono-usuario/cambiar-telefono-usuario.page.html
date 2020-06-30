@@ -3,7 +3,7 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaultHref="/tabs/ajustes" text="Atrás"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Nombre</ion-title>
+		<ion-title>Teléfono</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -13,15 +13,15 @@
     <ion-row class="ion-justify-content-center">
 			<ion-col>
 				<ion-item>
-					<ion-label position="floating">Nuevo Nombre de Usuario</ion-label>
+					<ion-label position="floating">Nuevo Teléfono</ion-label>
 					<ion-input 
-						[(ngModel)]="nuevoUsuario"
+						[(ngModel)]="nuevoTelefono"
 						type="text" 
 						autofocus="true" 
 						enterkeyhint="next" 
 						inputmode="text" 
-						name="nuevoUsuario" 
-						placeholder="Nombre" 
+						name="nuevoTelefono" 
+						placeholder="Teléfono" 
 						required="true">
 					</ion-input>
 				</ion-item>
@@ -35,9 +35,9 @@
 					color="primary" 
 					[routerLink]="['/tabs/ajustes']" 
 					expand="block" 
-					(click)="this.obtenerRespuestaNombreDeUsuarioModificado(this.nuevoUsuario)"
+					(click)="this.obtenerRespuestaTelefonoDeUsuarioModificado(this.nuevoTelefono)"
 				>
-					Cambiar Nombre de Usuario
+					Cambiar Teléfono
 				</ion-button>
 			</ion-col>
 		</ion-row>
@@ -48,4 +48,3 @@
 		</ion-row>
   </ion-grid>
 </ion-content>
-

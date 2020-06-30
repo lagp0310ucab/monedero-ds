@@ -25,6 +25,7 @@ export class HomePage implements OnInit {
 		let that = this;
 		const suscription = response.subscribe({
 			next(res) {
+				that.loginService.updateDatosUsuario(res.result);
 				that.loginService.updateIdUsuario(res.result.idUsuario);
 			},
 			async error(msg) {

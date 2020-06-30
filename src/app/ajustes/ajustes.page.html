@@ -12,20 +12,23 @@
 						<ion-label>Mis Datos</ion-label>
 					</ion-list-header>
 					<ion-item button [routerLink]="['/cambiar-nombre-usuario']">
-						<ion-label>Cambiar Nombre de Usuario</ion-label>
+						<ion-label>Cambiar Nombre</ion-label>
 					</ion-item>
-					<ion-item button [routerLink]="['/cambiar-password']">
-						<ion-label>Cambiar Contraseña</ion-label>
+					<ion-item button [routerLink]="['/cambiar-apellido-usuario']">
+						<ion-label>Cambiar Apellido</ion-label>
 					</ion-item>
-					<ion-item button [routerLink]="['/cambiar-correo-electronico']">
-						<ion-label>Cambiar Correo Electrónico</ion-label>
+					<ion-item button [routerLink]="['/cambiar-telefono-usuario']">
+						<ion-label>Cambiar Teléfono</ion-label>
+					</ion-item>
+					<ion-item button [routerLink]="['/cambiar-direccion-usuario']">
+						<ion-label>Cambiar Dirección</ion-label>
 					</ion-item>
 					<ion-list-header>
 						<ion-label>Tema</ion-label>
 					</ion-list-header>
 					<ion-item>
 						<ion-label>Modo Oscuro</ion-label>
-						<ion-toggle checked slot="end"></ion-toggle>
+						<ion-toggle checked slot="end" disabled></ion-toggle>
 					</ion-item>
 					<ion-list-header>
 						<ion-label>Misceláneos</ion-label>
