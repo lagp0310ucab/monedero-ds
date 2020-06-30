@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { SaldoService } from '../services/saldo.service';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -9,64 +10,21 @@ import { LoginService } from '../services/login.service';
 })
 export class RecargarCuentaBancariaPage implements OnInit {
 
-  lista:Array<any>=[
-    {
-      banco: "Venezuela",
-      No: "62156849"
-    },
-    {
-      banco: "Banesco",
-      No: "92356249"
-     
-    },
-    {
-      banco: "Provincial",
-      No: "92356249"
-    
-    },
-    {
-      banco: "Venezolano de Credito",
-      No: "92356249"
-     
-    },
+  constructor(private saldoService: SaldoService, private loginService: LoginService) { }
 
-    {
-      banco: "Mercantil",
-      No: "2233241"
-    
-    },
-    {
-      banco: "Venezuela",
-      No: "62156849"
-   
-    },
-    {
-      banco: "Banesco",
-      No: "92356249"
-   
-    },
-    {
-      banco: "Provincial",
-      No: "92356249"
-
-    },
-    {
-      banco: "Venezolano de Credito",
-      No: "92356249"
-
-    },
-
-    {
-      banco: "Mercantil",
-      No: "2233241"
-
-    }
-
-  ]
-
-  constructor(private loginService: LoginService) { }
-
+	private cuentas: any;
+	
   ngOnInit() {
+		this.obtenerCuentas(this.loginService.getToken(), this.loginService.getIdUsuario(), this.loginService.getAuthHeader());
   }
+	
+	/**
+	 * Obtener las cuentas del usuario.
+	 */
+	public async obtenerCuentas(token: string, idUsuario: string, headers: any) {
+		return await this.saldoService.obtenerCuentas(token, idUsuario, headers).subscribe((data: any) => {
+			this.cuentas = data
+		});
+	}
 
 }

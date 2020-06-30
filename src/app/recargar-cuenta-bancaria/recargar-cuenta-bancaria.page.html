@@ -1,25 +1,22 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-			<ion-back-button defaultHref="/recargarsaldo"></ion-back-button>
+			<ion-back-button defaultHref="/tabs/saldo"></ion-back-button>
 		</ion-buttons>
-
-       <ion-title>Cuentas Bancarias</ion-title>
-
+		<ion-title>Cuentas Bancarias</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-
   <ion-list>
     <ion-item>
       <ion-label>Banco </ion-label>
+      <ion-label>Tipo Cuenta </ion-label>
       <ion-label>No </ion-label>
     </ion-item>
-    <ion-item button *ngFor="let item of lista" [routerLink]="['/formulario-recargar-cuenta-saldo']">
-      <ion-label>{{item.banco}}</ion-label>
-      <ion-label>{{item.No}}</ion-label>
-    
+    <ion-item button *ngFor="let item of cuentas" [routerLink]="['/formulario-recargar-cuenta-saldo']">
+      <ion-label>{{item.infoAdicional._banco.nombre}}</ion-label>
+      <ion-label>{{item.infoAdicional._tipoCuenta.descripcion}}</ion-label>
+      <ion-label>{{item.infoAdicional._numero.substring(16,21)}}</ion-label>
     </ion-item> 
   </ion-list>
 </ion-content>
