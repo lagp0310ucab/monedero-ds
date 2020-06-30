@@ -68,17 +68,41 @@ export class LoginService {
   /**
    * Se encarga de llamar al backend para hacer el login.
    */
-  public async login(usuario: string, email: string, password: string, comercio: boolean) {
+  public login(usuario: string, email: string, password: string, comercio: boolean) {
 		//console.log(usuario, email, password, comercio);
 	  // Parametro se mandan por el Body
-		let response: any = await this.http.post('http://localhost:49681/api/Authentication/Login', {
+		let response: Observable<any> = this.http.post('http://localhost:49681/api/Authentication/Login', {
 			'usuario': usuario,
 			'email': email,
 			'password': password,
 			'comercio': comercio
 		});
 		
-		if(response.result.token) {
+		const suscription = response.subscribe({
+			next(res) {
+				this.updateToken(res.result.token);
+				this.updateAuthHeader(res.result.token);
+				this.updateIdUsuario(res.result.userID);
+				this.router.navigate(['/tabs/home']);
+			},
+			error(msg) {
+				console.log('Error en el login: ', msg);
+				const alert = this.alertController.create({
+					header: 'Error',
+					message: 'Ocurrió un error inesperado. Por favor, inténtelo de nuevo.',
+					buttons: [
+						{
+							text: 'Entendido',
+							role: 'cancel'
+						}
+					]
+				});
+
+				alert.present();
+			}
+		});
+		
+		/*if(response) {
 			this.updateToken(response.result.token);
 			this.updateAuthHeader(response.result.token);
 			this.updateIdUsuario(response.result.userID);
@@ -97,7 +121,7 @@ export class LoginService {
 			});
 
 			await alert.present();
-		}
+		}*/
   }
 
   /**
