@@ -27,6 +27,8 @@ export class CambiarDireccionUsuarioPage implements OnInit {
 			'apellido': this.loginService.getApellidoUsuario(),
 			'telefono': this.loginService.getTelefonoUsuario(),
 			'direccion': nuevaDireccion,
+			'razonSocial': this.loginService.getRazonSocialUsuario(),
+			'idEstadoCivil': this.loginService.getIdEstadoCivilUsuario(),
 			'idUsuario': this.loginService.getIdUsuario()
 		}).subscribe((data: any) => {
 			console.log(data);

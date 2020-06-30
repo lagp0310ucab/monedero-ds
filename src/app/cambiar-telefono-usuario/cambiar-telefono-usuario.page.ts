@@ -27,6 +27,8 @@ export class CambiarTelefonoUsuarioPage implements OnInit {
 			'apellido': this.loginService.getApellidoUsuario(),
 			'telefono': nuevoTelefono,
 			'direccion': this.loginService.getDireccionUsuario(),
+			'razonSocial': this.loginService.getRazonSocialUsuario(),
+			'idEstadoCivil': this.loginService.getIdEstadoCivilUsuario(),
 			'idUsuario': this.loginService.getIdUsuario()
 		}).subscribe((data: any) => {
 			console.log(data);

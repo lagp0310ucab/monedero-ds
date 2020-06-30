@@ -46,6 +46,14 @@ export class LoginService {
 		return this.datosUsuario.direccion;
 	}
 	
+	getRazonSocialUsuario(): any {
+		return this.datosUsuario.razonSocial;
+	}
+	
+	getIdEstadoCivilUsuario(): any {
+		return this.datosUsuario.idEstadoCivil;
+	}
+	
 	getDatosUsuario(): any {
 		return this.datosUsuario;
 	}
