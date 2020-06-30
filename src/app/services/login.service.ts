@@ -28,6 +28,16 @@ export class LoginService {
 		this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + nuevoAuth);
 	}
 	
+	private username = new Subject<string>();
+	
+	updateUsername(nuevoUser: string) {
+		this.username.next(nuevoUser);
+	}
+	
+	getUsername(): Observable<string> {
+		return this.username.asObservable();
+	}
+	
 	// https://www.intersysconsulting.com/blog/angular-components/
 	private email = new Subject<string>();
 	
@@ -78,12 +88,14 @@ export class LoginService {
 			'comercio': comercio
 		});
 
+		this.updateUsername(usuario);
+		
 		let that = this;
 		const suscription = response.subscribe({
 			next(res) {
 				that.updateToken(res.result.token);
 				that.updateAuthHeader(res.result.token);
-				that.updateIdUsuario(res.result.userID);
+				//that.updateIdUsuario(res.result.userID);
 				that.router.navigate(['/tabs/home']);
 			},
 			async error(msg) {

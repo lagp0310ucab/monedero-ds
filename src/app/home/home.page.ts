@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Subject, Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 import { LoginService } from '../services/login.service';
 
@@ -9,12 +13,24 @@ import { LoginService } from '../services/login.service';
 })
 export class HomePage implements OnInit {
 
-  constructor(private loginService: LoginService) { }
-
-	private token: string;
+  constructor(private http: HttpClient, private loginService: LoginService) { }
 	
-  ngOnInit() {
-		this.token = this.loginService.getToken();
+  ngOnInit() {		
+		const response: Observable<any> = this.http.get('http://localhost:49681/api/Dashboard/InformacionPersona/' 
+		+ this.loginService.getUsername(),
+		{
+			headers: this.loginService.getAuthHeader()
+		});
+		
+		let that = this;
+		const suscription = response.subscribe({
+			next(res) {
+				that.loginService.updateIdUsuario(res.result.idUsuario);
+			},
+			async error(msg) {
+				console.log('Error: ', msg);
+			}
+		});
   }
 
 }
