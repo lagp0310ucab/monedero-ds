@@ -15,7 +15,7 @@ export class SaldoService {
 	 * Obtener el saldo del usuario.
 	 */
 	public getSaldo(token: string, idUsuario: string) {
-		return this.http.get('http://localhost:49681/api/Monedero/Consultar/' + idUsuario);
+		return this.http.get('http://localhost:49681/api/Monedero/Consultar?idUsuario=' + idUsuario);
 	}
 	
 }
