@@ -16,7 +16,7 @@
     <ion-item button *ngFor="let item of cuentas" [routerLink]="['/formulario-recargar-cuenta-saldo']">
       <ion-label>{{item.infoAdicional._banco.nombre}}</ion-label>
       <ion-label>{{item.infoAdicional._tipoCuenta.descripcion}}</ion-label>
-      <ion-label>{{item.infoAdicional._numero.substring(16,21)}}</ion-label>
+      <ion-label>{{item.infoAdicional._numero}}</ion-label>
     </ion-item> 
   </ion-list>
 </ion-content>
