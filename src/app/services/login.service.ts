@@ -14,7 +14,7 @@ export class LoginService {
 
   constructor(public alertController: AlertController, private http: HttpClient, private router: Router) { }
 	
-	public const httpOptions = {
+	public httpOptions = {
 		headers: new HttpHeaders({
 			'Authorization': 'Bearer '
 		})
