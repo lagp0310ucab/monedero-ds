@@ -103,9 +103,9 @@ export class LoginService {
   /**
    * Valida los campos antes de enviarlos al backend para hacer el login.
    */
-  public async validarCampos(usuario: string, email: string, password: string, comercio: boolean) {
+  public async validarCampos(usuario: string, email: string, password: string, comercio: boolean = false) {
 		// TODO: Validar con expresiones regulares.
-    if (usuario && email && password && comercio) {
+    if (usuario && email && password) {
       this.login(usuario, email, password, comercio);
     } else {
 			const alert = await this.alertController.create({
