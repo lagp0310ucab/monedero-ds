@@ -18,14 +18,14 @@ export class SaldoPage implements OnInit {
   constructor(private saldoService: SaldoService, private loginService: LoginService) { }
 
   ngOnInit() {
-		this.obtenerSaldo(this.loginService.getToken(), this.loginService.getIdUsuario());
+		this.obtenerSaldo(this.loginService.getToken(), this.loginService.getIdUsuario(), this.loginService.getAuthHeader());
   }
 	
 	/**
 	 * Recibe los datos del Observable declarado en saldo.service.
 	 */
-	public async obtenerSaldo(token: string, idUsuario: string) {
-		return await this.saldoService.getSaldo(token, idUsuario).subscribe((data: number) => {
+	public async obtenerSaldo(token: string, idUsuario: string, headers: any) {
+		return await this.saldoService.getSaldo(token, idUsuario, headers).subscribe((data: number) => {
 			this.saldo = data
 		});
 	}
