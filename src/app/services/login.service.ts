@@ -71,19 +71,20 @@ export class LoginService {
   public login(usuario: string, email: string, password: string, comercio: boolean) {
 		//console.log(usuario, email, password, comercio);
 	  // Parametro se mandan por el Body
-		let response: Observable<any> = this.http.post('http://localhost:49681/api/Authentication/Login', {
+		const response: Observable<any> = this.http.post('http://localhost:49681/api/Authentication/Login', {
 			'usuario': usuario,
 			'email': email,
 			'password': password,
 			'comercio': comercio
 		});
-		
+
+		let that = this;
 		const suscription = response.subscribe({
 			next(res) {
-				this.updateToken(res.result.token);
-				this.updateAuthHeader(res.result.token);
-				this.updateIdUsuario(res.result.userID);
-				this.router.navigate(['/tabs/home']);
+				that.updateToken(res.result.token);
+				that.updateAuthHeader(res.result.token);
+				that.updateIdUsuario(res.result.userID);
+				that.router.navigate(['/tabs/home']);
 			},
 			async error(msg) {
 				console.log('Error en el login: ', msg);
