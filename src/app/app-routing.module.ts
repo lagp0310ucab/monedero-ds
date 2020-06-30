@@ -5,8 +5,9 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 const routes: Routes = [
   {
     path: '',
-		redirectTo: '/login',
-		pathMatch: 'full'
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+		/*redirectTo: '/login',
+		pathMatch: 'full'*/
   },
   {
     path: 'pagos',
@@ -103,7 +104,8 @@ const routes: Routes = [
   {
     path: 'formulario-operaciones',
     loadChildren: () => import('./formulario-operaciones/formulario-operaciones.module').then( m => m.FormularioOperacionesPageModule)
-  },  {
+  },
+  {
     path: 'cambiar-apellido-usuario',
     loadChildren: () => import('./cambiar-apellido-usuario/cambiar-apellido-usuario.module').then( m => m.CambiarApellidoUsuarioPageModule)
   },
